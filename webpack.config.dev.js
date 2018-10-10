@@ -92,7 +92,6 @@ module.exports = {
     // enable HMR on the server
     hot: true,
 
-<<<<<<< HEAD
     // proxy calls to /api out to the QEWD middleware
     proxy: {
       '/api': {
@@ -100,14 +99,6 @@ module.exports = {
         // secure: false,
       },
     },
-=======
-    // proxy: {
-    //   '/': {
-    //     target: DEV_SERVER_URL,
-    //     // secure: false,
-    //   },
-    // },
->>>>>>> 61d5512... proxy settings for api/ route edited in webpack.config.dev.js
   },
 
 };
