@@ -2,9 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ES6Promise = require('es6-promise');
-
-ES6Promise.polyfill();
 
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
@@ -15,7 +12,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body',
 });
 
-const DEV_SERVER_URL = 'http://46.101.95.245';
+const QEWD_SERVER_URL = 'http://localhost:8000';
 
 module.exports = {
   devtool: 'source-map',
@@ -56,7 +53,6 @@ module.exports = {
     new ExtractTextPlugin('styles.css'),
 
     new webpack.ProvidePlugin({
-      Promise: 'es6-promise-promise',
       '_': 'lodash/fp',
       '$': 'jquery',
       'jQuery': 'jquery',
@@ -90,15 +86,16 @@ module.exports = {
     host: 'localhost',
     port: 3000,
 
-    historyApiFallback: true,
     // respond to 404s with index.html
+    historyApiFallback: true,
 
-    hot: true,
     // enable HMR on the server
+    hot: true,
 
+    // proxy calls to /api out to the QEWD middleware
     proxy: {
-      '/': {
-        target: DEV_SERVER_URL,
+      '/api': {
+        target: QEWD_SERVER_URL,
         // secure: false,
       },
     },
