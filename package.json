@@ -113,7 +113,7 @@
   "dependencies": {
     "babel-plugin-syntax-dynamic-import": "6.18.0",
     "bootstrap": "3.3.7",
-    "bootstrap-sass": "3.3.7",
+    "bootstrap-sass": "3.4.1",
     "chart.js": "2.7.0",
     "classnames": "2.2.5",
     "cornerstone-core": "2.0.0",
